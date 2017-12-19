@@ -31,9 +31,9 @@ elif (world1_ag and world0_na or world0_ex):
 
 ## adjust BTN by affiliation, that is, if one is imperial and the other is in the confederation
 
-if (world0_aff == terran and world1_aff == imperial):
+if (world0_aff == 'terran' and world1_aff == 'imperial'):
     btn = btn-1
-elif (world0_aff == imperial and world1_aff == terran):
+elif (world0_aff == 'imperial' and world1_aff == 'terran'):
     btn = btn-1
 
 ## adjust BTN by distance
@@ -43,7 +43,7 @@ elif (distance > 0 and distance <= 2):
     btn = btn - 0.5
 elif (distance > 2 and distance <= 5):
     btn = btn - 1
-elif (distance > 5 and distance <= )9:
+elif (distance > 5 and distance <= 9):
     btn = btn - 1.5
 elif (distance > 9 and distance <= 19):
     btn = btn - 2
