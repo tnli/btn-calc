@@ -24,43 +24,44 @@ btn = world0_tn + world1_tn
 
 ## checking if one world is agricultural and the other is either extreme or not agricultural
 
-#if (world0_ag && world1_na || world1_ex)
-#    btn = btn + 0.5
+if (world0_ag and world1_na or world1_ex):
+    btn = btn + 0.5
+elif (world1_ag and world0_na or world0_ex):
+    btn = btn + 0.5
 
 ## adjust BTN by affiliation, that is, if one is imperial and the other is in the confederation
 
-#if (world0_aff == terran && world1_aff == imperial)
-#    btn = btn-1
-#else if (world0_aff == imperial && world1_aff == terran)
-#    btn = btn-1
+if (world0_aff == terran and world1_aff == imperial):
+    btn = btn-1
+elif (world0_aff == imperial and world1_aff == terran):
+    btn = btn-1
 
 ## adjust BTN by distance
-if distance <= 0:
+if (distance <= 0):
     btn = btn + 1
-elif distance > 0 and distance <= 2:
+elif (distance > 0 and distance <= 2):
     btn = btn - 0.5
-elif distance > 2 and distance <= 5:
+elif (distance > 2 and distance <= 5):
     btn = btn - 1
-elif distance > 5 and distance <= 9:
+elif (distance > 5 and distance <= )9:
     btn = btn - 1.5
-elif distance > 9 and distance <= 19:
+elif (distance > 9 and distance <= 19):
     btn = btn - 2
-
-## if distance is more than 20, there is no trade, need to add this 
-
+else:
+    btn = 0 
+# return btn
 
 ## check if BTN is too big (can't be more than twice+1 the smaller of the two world TN:s
 
 ## find smallest, make a function for this...
 
-if world0_tn > world1_tn:
+if (world0_tn > world1_tn):
     smallest_tn = world1_tn
-elif world1_tn > world0_tn:
+else:
     smallest_tn = world0_tn
-
-## check if BTN is too big
 
 if btn > 2 * smallest_tn + 1:
     btn = 2 * smallest_tn + 1
 
 print(btn)
+# retrun btn
